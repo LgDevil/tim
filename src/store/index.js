@@ -31,7 +31,12 @@ const state = {
 			route:"/messageChat/3"
 		}
 	],
-	friends:[{id:uuid(),friName:"王晓从"},{id:uuid(),friName:"赵高"},{id:uuid(),friName:"李白"},{id:uuid(),friName:"张二蛋"},{id:uuid(),friName:"离散狗"}]
+	friends:[{id:uuid(),friName:"王晓从"},{id:uuid(),friName:"赵高"},{id:uuid(),friName:"李白"},{id:uuid(),friName:"张二蛋"},{id:uuid(),friName:"离散狗"}],
+	timGroups:[
+		{id:uuid(),groupName:"拼多多一群",route:"",key:"1",child:[]},
+		{id:uuid(),groupName:"王者荣耀交流群",child:[]},
+		{id:uuid(),groupName:"员工讨薪群",child:[]},
+	]
 }
 
 
