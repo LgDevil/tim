@@ -50,9 +50,7 @@
 			}
 		},
 		beforeRouteUpdate(to, from, next) {
-			console.log("this.params", to.params.id)
 			this.chatUser = this.$store.getters.getTargetChatUser(to.params.id)
-			console.log("chatUser", this.$store.state.chatUsers)
 			next()
 		},
 		methods: {

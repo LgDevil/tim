@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
-  return routerPush.call(this, location).catch(error=> error)
+	return routerPush.call(this, location).catch(error => error)
 }
 
 
@@ -16,40 +16,49 @@ const messageChat = r => require.ensure([], () => r(require('../components/messa
 const onLineWord = r => require.ensure([], () => r(require('../components/onLineWord')), 'onLineWord')
 const Friends = r => require.ensure([], () => r(require('../components/Friends')), 'Friends')
 const messageChat2 = r => require.ensure([], () => r(require('../components/messageChat2')), 'messageChat2')
+const timGroupsChat = r => require.ensure([], () => r(require('../components/timGroupsChat')), 'timGroupsChat')
+const addFriends = r => require.ensure([], () => r(require('../components/addFriends')), 'addFriends')
 
 const routes = [{
 	path: "/",
 	name: "login",
 	component: login
-},{
+}, {
 	path: "/mainMianBan",
 	name: "mainMianBan",
-	redirect:"/Message",
+	redirect: "/Message",
 	component: mainMianBan,
-	children:[
-		{
-		path:'/Message',
-		name:'Message',
-		  // redirect:'/messageChat',
-		component:Message,
-		  children:[
-		    {
-		      path:'/messageChat/:id',
-		      name:'messageChat',
-		      component:messageChat,
-			  props: true
-		    }
-		  ]
+	children: [{
+			path: '/Message',
+			name: 'Message',
+			// redirect:'/messageChat',
+			component: Message,
+			children: [{
+				path: '/messageChat/:id',
+				name: 'messageChat',
+				component: messageChat,
+				props: true
+			}]
 		},
 		{
-		  path:'/Friends',
-		  name:'Friends',
-		  component:Friends
+			path: '/Friends',
+			name: 'Friends',
+			component: Friends,
+			children: [{
+				path: '/timGroupsChat/:id',
+				name: 'timGroupsChat',
+				component: timGroupsChat,
+				props: true
+			},{
+				path:'/addFriends',
+				name:'addFriends',
+				component:addFriends
+			}]
 		},
 		{
-		  path:'/onLineWord',
-		  name:'onLineWord',
-		  component:onLineWord
+			path: '/onLineWord',
+			name: 'onLineWord',
+			component: onLineWord
 		},
 	]
 }]

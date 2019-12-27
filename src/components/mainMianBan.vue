@@ -47,7 +47,7 @@
           <i class="fa fa-navicon"></i>
           <i class="fa fa-minus"></i>
           <i class="fa fa-square-o"></i>
-          <i class="fa fa-times hover-red"></i>
+          <i class="fa fa-times hover-red" @click="toLogin"></i>
         </div>
       </div>
     <router-view></router-view>
@@ -73,7 +73,12 @@ import onLineWord from './onLineWord.vue'
       Firends,
       Message,
       onLineWord,
-    }
+    },
+	methods:{
+		toLogin(){
+			this.$router.push("/")
+		}
+	}
   }
 </script>
 
